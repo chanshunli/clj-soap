@@ -35,3 +35,35 @@
     )
   ;; org.apache.axis2.AxisFault: The input stream for an incoming message is null.
   )
+
+(defn test-lambda-code2 []
+  ;; <soap:operation soapAction="http://report.dagene.net/GetDetailData5" style="document"/>
+  (let [url "http://report.dagene.net/RasClientDetail.asmx?wsdl"
+        data "31222222222"
+        method "GetDetailData5"
+        ;; ?
+        tns "http://myclass.jp"
+        ;; ===>>>
+        target-epr (EndpointReference. url)
+        options (doto (Options.)
+                  (.setTo target-epr)
+                  (.setAction "http://report.dagene.net/GetDetailData5")
+                  ;; <= https://blog.csdn.net/elfenliedef/article/details/6556145
+                  )
+        sender (doto (ServiceClient.)
+                 (.setOptions options))
+        fac (OMAbstractFactory/getOMFactory)
+        om-ns (.createOMNamespace fac tns "")
+        ot (.createOMElement fac method om-ns)
+        symbol (.createOMElement fac "name" om-ns)
+        _ (.addChild symbol
+                     (.createOMText fac symbol data))
+        _ (.addChild ot symbol)
+        ]
+    (.sendReceive sender ot)
+    )
+  ;; org.apache.axis2.AxisFault: System.Web.Services.Protocols.SoapException: 服务器未能识别 HTTP 头 SOAPAction 的值: 。
+
+  ;; org.apache.axis2.AxisFault: System.Web.Services.Protocols.SoapException: 服务器无法处理请求。 ---> System.ArgumentNullException: 值不能为空。
+  ;; 参数名: input
+  )
