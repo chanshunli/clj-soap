@@ -113,11 +113,14 @@
         (.setTo (org.apache.axis2.addressing.EndpointReference. url))))))
 
 (defn make-request [op & args]
+  (prn (str "========make-request==" (axis-op-namespace op) "====" op "====" args "====" (axis-op-name op)))
+  ;; => "========make-request==http://myclass.jp====org.apache.axis2.description.OutOnlyAxisOperation@33b9da29====(\"piyopiyo\")====changeval"
   (let [factory (org.apache.axiom.om.OMAbstractFactory/getOMFactory)
         request (.createOMElement
                   factory (javax.xml.namespace.QName.
                             (axis-op-namespace op) (axis-op-name op)))
-        op-args (axis-op-args op)]
+        op-args (axis-op-args op)
+        _ (prn "------" op-args)]
     (doseq [[argval argtype] (map list args op-args)]
       (.addChild request
                  (doto (.createOMElement
