@@ -8,5 +8,5 @@
     OMNamespace]
    [org.apache.axis2 AxisFault]
    [org.apache.axis2.addressing EndpointReference]
-   [org.apache.axis2.client.Options ServiceClient]
+   [org.apache.axis2.client ServiceClient]
    [org.apache.axis2.rpc.client RPCServiceClient]))
