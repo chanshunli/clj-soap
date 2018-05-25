@@ -78,8 +78,11 @@
 (defn axis-op-args [axis-op]
   (for [elem (-?> (first (filter #(= "out" (.getDirection %))
                                  (iterator-seq (.getMessages axis-op))))
+                  ;; first: => #object[org.apache.axis2.description.AxisMessage 0x32bfe9a9 "org.apache.axis2.description.AxisMessage@32bfe9a9"]
                   .getSchemaElement .getSchemaType
-                  .getParticle .getItems .getIterator iterator-seq)]
+                  .getParticle .getItems
+                  ;;=> [#object[org.apache.ws.commons.schema.XmlSchemaElement 0x3b8fdb75 "org.apache.ws.commons.schema.XmlSchemaElement@986e2db0"]]
+                  .getIterator iterator-seq)]
     {:name (.getName elem) :type (-?> elem .getSchemaType .getName keyword)}))
 
 (defn axis-op-rettype [axis-op]
@@ -112,7 +115,12 @@
       (doto (org.apache.axis2.client.Options.)
         (.setTo (org.apache.axis2.addressing.EndpointReference. url))))))
 
+(def op-test (atom ""))
+
+(def axis-op @op-test)
+
 (defn make-request [op & args]
+  (reset! op-test op)
   (prn (str "========make-request==" (axis-op-namespace op) "====" op "====" args "====" (axis-op-name op)))
   ;; => "========make-request==http://myclass.jp====org.apache.axis2.description.OutOnlyAxisOperation@33b9da29====(\"piyopiyo\")====changeval"
   (let [factory (org.apache.axiom.om.OMAbstractFactory/getOMFactory)
