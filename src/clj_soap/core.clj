@@ -1,5 +1,6 @@
 (ns clj-soap.core
-  (:require [clojure.core.incubator :refer [-?>]]))
+  (:require [clojure.core.incubator :refer [-?>]]
+            [clj-soap.steve :as steve]))
 
 ;;; Defining SOAP Server
 
