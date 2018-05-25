@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns="http://myclass.jp" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" targetNamespace="http://myclass.jp">
+    <wsdl:types>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="unqualified" targetNamespace="http://myclass.jp">
+            <xs:element name="toString">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="toStringResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="hypotenuse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="args0" type="xs:double"/>
+                        <xs:element name="args1" type="xs:double"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="hypotenuseResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="return" type="xs:double"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="hashCode">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="hashCodeResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="return" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="equals">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="args0" nillable="true" type="xs:anyType"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="equalsResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="doubl2">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="args0" type="xs:double"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="doubl2Response">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="return" type="xs:double"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="doubl1">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="args0" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="doubl1Response">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="clone">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="cloneResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:anyType"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="changeval">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="args0" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="hypotenuseRequest">
+        <wsdl:part name="parameters" element="ns:hypotenuse"/>
+    </wsdl:message>
+    <wsdl:message name="hypotenuseResponse">
+        <wsdl:part name="parameters" element="ns:hypotenuseResponse"/>
+    </wsdl:message>
+    <wsdl:message name="hashCodeRequest">
+        <wsdl:part name="parameters" element="ns:hashCode"/>
+    </wsdl:message>
+    <wsdl:message name="hashCodeResponse">
+        <wsdl:part name="parameters" element="ns:hashCodeResponse"/>
+    </wsdl:message>
+    <wsdl:message name="equalsRequest">
+        <wsdl:part name="parameters" element="ns:equals"/>
+    </wsdl:message>
+    <wsdl:message name="equalsResponse">
+        <wsdl:part name="parameters" element="ns:equalsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="cloneRequest">
+        <wsdl:part name="parameters" element="ns:clone"/>
+    </wsdl:message>
+    <wsdl:message name="cloneResponse">
+        <wsdl:part name="parameters" element="ns:cloneResponse"/>
+    </wsdl:message>
+    <wsdl:message name="doubl2Request">
+        <wsdl:part name="parameters" element="ns:doubl2"/>
+    </wsdl:message>
+    <wsdl:message name="doubl2Response">
+        <wsdl:part name="parameters" element="ns:doubl2Response"/>
+    </wsdl:message>
+    <wsdl:message name="toStringRequest">
+        <wsdl:part name="parameters" element="ns:toString"/>
+    </wsdl:message>
+    <wsdl:message name="toStringResponse">
+        <wsdl:part name="parameters" element="ns:toStringResponse"/>
+    </wsdl:message>
+    <wsdl:message name="doubl1Request">
+        <wsdl:part name="parameters" element="ns:doubl1"/>
+    </wsdl:message>
+    <wsdl:message name="doubl1Response">
+        <wsdl:part name="parameters" element="ns:doubl1Response"/>
+    </wsdl:message>
+    <wsdl:message name="changevalRequest">
+        <wsdl:part name="parameters" element="ns:changeval"/>
+    </wsdl:message>
+    <wsdl:portType name="MyAppPortType">
+        <wsdl:operation name="hypotenuse">
+            <wsdl:input message="ns:hypotenuseRequest" wsaw:Action="urn:hypotenuse"/>
+            <wsdl:output message="ns:hypotenuseResponse" wsaw:Action="urn:hypotenuseResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="hashCode">
+            <wsdl:input message="ns:hashCodeRequest" wsaw:Action="urn:hashCode"/>
+            <wsdl:output message="ns:hashCodeResponse" wsaw:Action="urn:hashCodeResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="equals">
+            <wsdl:input message="ns:equalsRequest" wsaw:Action="urn:equals"/>
+            <wsdl:output message="ns:equalsResponse" wsaw:Action="urn:equalsResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="clone">
+            <wsdl:input message="ns:cloneRequest" wsaw:Action="urn:clone"/>
+            <wsdl:output message="ns:cloneResponse" wsaw:Action="urn:cloneResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="doubl2">
+            <wsdl:input message="ns:doubl2Request" wsaw:Action="urn:doubl2"/>
+            <wsdl:output message="ns:doubl2Response" wsaw:Action="urn:doubl2Response"/>
+        </wsdl:operation>
+        <wsdl:operation name="toString">
+            <wsdl:input message="ns:toStringRequest" wsaw:Action="urn:toString"/>
+            <wsdl:output message="ns:toStringResponse" wsaw:Action="urn:toStringResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="doubl1">
+            <wsdl:input message="ns:doubl1Request" wsaw:Action="urn:doubl1"/>
+            <wsdl:output message="ns:doubl1Response" wsaw:Action="urn:doubl1Response"/>
+        </wsdl:operation>
+        <wsdl:operation name="changeval">
+            <wsdl:input message="ns:changevalRequest" wsaw:Action="urn:changeval"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="MyAppSoap11Binding" type="ns:MyAppPortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="hypotenuse">
+            <soap:operation soapAction="urn:hypotenuse" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="hashCode">
+            <soap:operation soapAction="urn:hashCode" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="equals">
+            <soap:operation soapAction="urn:equals" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="clone">
+            <soap:operation soapAction="urn:clone" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="doubl2">
+            <soap:operation soapAction="urn:doubl2" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="toString">
+            <soap:operation soapAction="urn:toString" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="doubl1">
+            <soap:operation soapAction="urn:doubl1" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="changeval">
+            <soap:operation soapAction="urn:changeval" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="MyAppSoap12Binding" type="ns:MyAppPortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="hypotenuse">
+            <soap12:operation soapAction="urn:hypotenuse" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="hashCode">
+            <soap12:operation soapAction="urn:hashCode" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="equals">
+            <soap12:operation soapAction="urn:equals" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="clone">
+            <soap12:operation soapAction="urn:clone" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="doubl2">
+            <soap12:operation soapAction="urn:doubl2" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="toString">
+            <soap12:operation soapAction="urn:toString" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="doubl1">
+            <soap12:operation soapAction="urn:doubl1" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="changeval">
+            <soap12:operation soapAction="urn:changeval" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="MyAppHttpBinding" type="ns:MyAppPortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="hypotenuse">
+            <http:operation location="hypotenuse"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="hashCode">
+            <http:operation location="hashCode"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="equals">
+            <http:operation location="equals"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="clone">
+            <http:operation location="clone"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="doubl2">
+            <http:operation location="doubl2"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="toString">
+            <http:operation location="toString"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="doubl1">
+            <http:operation location="doubl1"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="changeval">
+            <http:operation location="changeval"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="MyApp">
+        <wsdl:port name="MyAppHttpSoap11Endpoint" binding="ns:MyAppSoap11Binding">
+            <soap:address location="http://localhost:6060/axis2/services/MyApp.MyAppHttpSoap11Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="MyAppHttpSoap12Endpoint" binding="ns:MyAppSoap12Binding">
+            <soap12:address location="http://localhost:6060/axis2/services/MyApp.MyAppHttpSoap12Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="MyAppHttpEndpoint" binding="ns:MyAppHttpBinding">
+            <http:address location="http://localhost:6060/axis2/services/MyApp.MyAppHttpEndpoint/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
