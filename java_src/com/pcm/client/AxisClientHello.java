@@ -25,11 +25,10 @@ import org.apache.axis2.rpc.client.RPCServiceClient;
 * @author panchengming
  */
 public class AxisClientHello {
-	private final static String url="http://192.168.1.105:8080/axis2/services/AxisServiceHello?wsdl"; //wsdl地址 
-	private final static String data="PanChengMing";												   //参数
-	private final static String tns = "http://service.pcm.com";  									   //命名空间
-	private final static String method="getValue";												  //调用的方法
-	
+        private final static String url="http://localhost:6060/axis2/services/MyApp?wsdl";
+        private final static String data="piyopiyo";
+        private final static String tns="http://myclass.jp";
+	private final static String method="changeval";
 	 //调用webservice
 	public static void main(String[] args) throws  IOException{
 			getRPC();			//调用方法一
