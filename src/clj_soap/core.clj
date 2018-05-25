@@ -118,8 +118,11 @@
   (let [factory (org.apache.axiom.om.OMAbstractFactory/getOMFactory)
         request (.createOMElement
                   factory (javax.xml.namespace.QName.
-                            (axis-op-namespace op) (axis-op-name op)))
+                           (axis-op-namespace op) (axis-op-name op)))
+        _ (prn "~~~~~~~" request)
+        ;; => "~~~~~~~" #object[org.apache.axiom.om.impl.llom.OMElementImpl 0x6be66be "<nsfAEX0:changeval xmlns:nsfAEX0=\"http://myclass.jp\"/>"]
         op-args (axis-op-args op)
+        ;; => IllegalArgumentException No matching field found: getIterator for class java.util.ArrayList  clojure.lang.Reflector.getInstanceField (Reflector.java:271)
         _ (prn "------" op-args)]
     (doseq [[argval argtype] (map list args op-args)]
       (.addChild request
