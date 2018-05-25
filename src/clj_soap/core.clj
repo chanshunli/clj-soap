@@ -1,6 +1,7 @@
 (ns clj-soap.core
   (:require [clojure.core.incubator :refer [-?>]]
-            [clj-soap.steve :as steve]))
+            [clj-soap.steve :as steve])
+  (:import (com.pcm.client AxisClientHello)))
 
 ;;; Defining SOAP Server
 

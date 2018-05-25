@@ -10,4 +10,5 @@
                  [org.apache.axis2/axis2-transport-local "1.7.7"]]
   :source-paths ["src" "test"]
   :aot [clj-soap.test.core]
+  :java-source-paths ["java_src"]
   :main clj-soap.core)
