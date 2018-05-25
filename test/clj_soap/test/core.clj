@@ -11,9 +11,10 @@
           (^Double [^Double x] (+ x x)))
   (doubl2 (^Double [^Double x] (+ x x))
           (^String [^String x] (str x x))))
+;; => #object[clojure.lang.MultiFn 0x31fa0e18 "clojure.lang.MultiFn@31fa0e18"]
 
 (deftest test-my-app
-  (serve "jp.myclass.MyApp")
+  (serve "jp.myclass.MyApp") ;;=> 启动信息: Listening on port 6060
   (let [cl (client-fn "http://localhost:6060/axis2/services/MyApp?wsdl")]
     (is (= 5.0 (cl :hypotenuse 3 4)) "SOAP call with return value")
     (cl :changeval "piyopiyo")
