@@ -70,6 +70,11 @@
         _ (.addChild symbol
                      (.createOMText fac symbol "aaaaaaaaaaaaa"))
         _ (.addChild ot symbol)
+        ;;
+        _ (.addChild ot cid)
+        _ (.addChild ot cuid)
+        _ (.addChild ot sdate)
+        _ (.addChild ot edate)
         ]
     (.sendReceive sender ot)
     )
