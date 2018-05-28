@@ -83,3 +83,36 @@
   ;; org.apache.axis2.AxisFault: System.Web.Services.Protocols.SoapException: 服务器无法处理请求。 ---> System.ArgumentNullException: 值不能为空。
   ;; 参数名: input
   )
+
+(defn test-lambda-code3 []
+  (let [url "http://report.dagene.net/RasClientDetail.asmx?wsdl"
+        method "GetDetailData5"
+        tns "http://myclass.jp"
+        target-epr (EndpointReference. url)
+        options (doto (Options.)
+                  (.setTo target-epr)
+                  (.setAction "http://report.dagene.net/GetDetailData5"))
+        sender (doto (ServiceClient.)
+                 (.setOptions options))
+        fac (OMAbstractFactory/getOMFactory)
+      ;;;;;;;;;;;;;;;
+        om-ns (.createOMNamespace fac tns "")
+        data (.createOMElement fac "ClientID" om-ns)
+        _ (.setText data "IDIDIDIDI")
+        ;; ClientGUID
+        inner (.createOMElement fac "ClientGUID" om-ns)
+        _ (.setText inner "dasdasdasdasdas")
+        _ (.addChild data inner)
+        ;;
+        inner2 (.createOMElement fac "StartDate" om-ns)
+        _ (.setText inner2 "dasdasdasdasdas")
+        _ (.addChild data inner2)
+        ;;
+        inner3 (.createOMElement fac "EndDate" om-ns)
+        _ (.setText inner3 "dasdasdasdasdas")
+        _ (.addChild data inner3)
+        ]
+    ;;(.sendReceive sender ot)
+    (.sendReceive sender data)
+    )
+  )
