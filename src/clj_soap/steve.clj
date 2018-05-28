@@ -55,9 +55,20 @@
         fac (OMAbstractFactory/getOMFactory)
         om-ns (.createOMNamespace fac tns "")
         ot (.createOMElement fac method om-ns)
-        symbol (.createOMElement fac "name" om-ns)
+        symbol (.createOMElement fac "ClientID" om-ns)
+        ;;_ (.createOMElement fac "ClientID" om-ns) ;;OK
+        ;; 在 RasClientDetail.GetDetailData5(String ClientID, String ClientGUID, String StartDate, String EndDate)
+        cid   (.createOMElement fac "ClientID" om-ns)
+        cuid  (.createOMElement fac "ClientGUID" om-ns)
+        sdate (.createOMElement fac "StartDate" om-ns)
+        edate (.createOMElement fac "EndDate" om-ns)
+        _ (.setText cid "ACCCCC")
+        _ (.setText cuid "ACCCCC")
+        _ (.setText sdate "ACCCCC")
+        _ (.setText edate "ACCCCC")
+        ;;
         _ (.addChild symbol
-                     (.createOMText fac symbol data))
+                     (.createOMText fac symbol "aaaaaaaaaaaaa"))
         _ (.addChild ot symbol)
         ]
     (.sendReceive sender ot)
